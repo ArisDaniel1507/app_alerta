@@ -22,22 +22,28 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($myposts as $mp)
-                            <tr>
-                                <th scope="row">{{$mp->id}}</th>
-                                <td>{{$mp->titulo}}</td>
-                                <td>{{$mp->ubicacion}}</td>
-                                <td>{{$mp->category->nombre}}</td>
-                                <td>
-                                    <a href="{{route('post.edit',$mp->id)}}" class="btn btn-primary">
-                                        Editar
-                                    </a>
-                                    <a href="{{route('post.delete',$mp->id)}}" class="btn btn-secondary">
-                                        Eliminar
-                                    </a>
-                                </td>
-                            </tr>
-                            @endforeach
+                            @if($myposts->count() > 0)
+                                @foreach($myposts as $mp)
+                                    <tr>
+                                        <th scope="row">{{$mp->id}}</th>
+                                        <td>{{$mp->titulo}}</td>
+                                        <td>{{$mp->ubicacion}}</td>
+                                        <td>{{$mp->category->nombre}}</td>
+                                        <td>
+                                            <a href="{{route('post.edit',$mp->id)}}" class="btn btn-primary">
+                                                Editar
+                                            </a>
+                                            <a href="{{route('post.delete',$mp->id)}}" class="btn btn-secondary">
+                                                Eliminar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="5" class="text-center">No tienes ninguna publicación</td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>

@@ -29,3 +29,5 @@ Route::get('/editar-publicacion/{id}', [App\Http\Controllers\PostController::cla
 Route::get('/ver-publicacion/{titulo}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
 Route::get('/mis-publicaciones', [App\Http\Controllers\PostController::class, 'myposts'])->name('post.my-posts');
 Route::get('/admin-publicaciones', [App\Http\Controllers\PostController::class, 'adminpost'])->name('post.admin.index');
+
+Route::post('/ver-publicacion/{titulo}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
